@@ -3,7 +3,6 @@
 import turtle
 turtle.title('Maze game')
 
-
 def horizontal_line_builder(horizontal_line, x, stepping_y):
     pen = turtle.Turtle()
     pen.speed(0)
@@ -104,17 +103,18 @@ vertical_line = [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]
 
 x,y = -500, 450
-
+turtle.tracer(0)
 horizontal_builder(horizontal_line, x, y) 
 vertical_builder(vertical_line, x,y)
-
+turtle.update()
+turtle.tracer(1)
 
 ##here I did some code for movement of turtle through maze
 #
 movement = turtle.Turtle()
 movement.up()
 movement.pencolor('red')
-movement.size(8)
+movement.pensize(8)
 movement.left(90)
 movement.goto(10,-415)
 
