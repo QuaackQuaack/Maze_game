@@ -3,6 +3,19 @@
 import turtle
 turtle.title('Maze game')
 pixels = list()
+
+
+# to write in turtle screen
+words = ['Welcome to turtle game',"press 'W' to move ahead","'A' and 'D' for changing direction","'S' to undo your movement"]
+turtle.up()
+turtle.hideturtle()
+turtle.goto(-350,400)
+for word in words:
+    turtle.write(word,move = False,align = 'left',font = ('Georgia',38,'normal'))
+    turtle.sety(turtle.ycor() - 60)
+
+
+
 def horizontal_line_builder(horizontal_line, x, stepping_y):
     pen = turtle.Turtle()
     pen.speed(0)
@@ -126,7 +139,7 @@ movement.up()
 movement.pencolor('red')
 movement.pensize(5)
 movement.left(90)
-movement.goto(40,-350)
+movement.goto(60,-363)
 
 
 
@@ -155,7 +168,7 @@ turtle.onkey(goingback,'s')
 turtle.listen()
     
 
-#print(len(pixels))
+#print(len(pixels)) #debug
 turtle.done()
 
 
