@@ -2,7 +2,7 @@
 
 import turtle
 turtle.title('Maze game')
-
+pixels = list()
 def horizontal_line_builder(horizontal_line, x, stepping_y):
     pen = turtle.Turtle()
     pen.speed(0)
@@ -11,18 +11,23 @@ def horizontal_line_builder(horizontal_line, x, stepping_y):
     pen.goto(x,stepping_y)
     for moving in horizontal_line:
         if moving == 1:
-            pen.down()
-            pen.forward(40)
-            pen.up()
+            for i in range(2):
+                pen.forward(21/4)
+                pixel = pen.clone()
+                pixel.showturtle()
+                pixel.shape('square')
+                pixel.shapesize(1/20,10.5/20)
+                pixels.append(pixel)
+                pen.forward(21/4)
         else:
-            pen.forward(40)
+            pen.forward(21)
     
 
 def horizontal_builder(horizontal_line, x, y):
     stepping_y = y 
     for taking_first_row in horizontal_line:
         horizontal_line_builder(taking_first_row, x, stepping_y)
-        stepping_y -= 40
+        stepping_y -= 21
 
 def vertical_line_builder(vertical_line, stepping_x, y):
     pen = turtle.Turtle()
@@ -33,18 +38,23 @@ def vertical_line_builder(vertical_line, stepping_x, y):
     pen.right(90)
     for moving in vertical_line:
         if moving == 1:
-            pen.down()
-            pen.forward(40)
-            pen.up()
+            for i in range(2):
+                pen.forward(21/4)
+                pixel = pen.clone()
+                pixel.showturtle()
+                pixel.shape('square')
+                pixel.shapesize(1/20,10.5/20)
+                pixels.append(pixel)
+                pen.forward(21/4)
         else:
-            pen.forward(40)
+            pen.forward(21)
 
 
 def vertical_builder(vertical_line,x,y):
     stepping_x  = x
     for taking_first_row in vertical_line:
         vertical_line_builder(taking_first_row, stepping_x, y)
-        stepping_x += 40
+        stepping_x += 21
 
 
 
@@ -102,7 +112,7 @@ vertical_line = [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
       [0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0],
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]
 
-x,y = -500, 450
+x,y = -200, 100
 turtle.tracer(0)
 horizontal_builder(horizontal_line, x, y) 
 vertical_builder(vertical_line, x,y)
@@ -114,14 +124,20 @@ turtle.tracer(1)
 movement = turtle.Turtle()
 movement.up()
 movement.pencolor('red')
-movement.pensize(8)
+movement.pensize(5)
 movement.left(90)
-movement.goto(10,-415)
+movement.goto(40,-350)
+
 
 
 def forward(): #to move forward 
     movement.down()
-    movement.forward(10)
+    movement.forward(3)
+    if any(pixel.distance(movement) < 5  for pixel in pixels):
+        movement.undo()
+
+def goingback():
+    movement.undo()
 
 def turning_left(): # to turn left
     movement.down()
@@ -134,12 +150,12 @@ def turning_right(): #to turn right
 turtle.onkey(forward,'w')
 turtle.onkey(turning_left,'a')
 turtle.onkey(turning_right,'d')
-
+turtle.onkey(goingback,'s')
 
 turtle.listen()
     
 
-
+#print(len(pixels))
 turtle.done()
 
 
