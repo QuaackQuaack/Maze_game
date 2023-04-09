@@ -16,4 +16,7 @@ git clone https://github.com/QuaackQuaack/Maze_game.git
 cd Maze_game
 python3 Maze_game.py
 ```
+###to-do
+- [ ] ask user info in small pop-up box 
+- [ ] adding different level.
 
