@@ -1,8 +1,10 @@
-# Maze game
-A maze game using turtle.
+<div align='center'> 
+<h1 align='center'> Maze game </h1>
+<p>A maze game using turtle.</p>
+</div>
 
 ## Requirements
-First you need to install tkinter
+First, you need to install tkinter
 + For Ubunutu
 ``` sudo apt-get install python3-tk```
 + For Debian 
@@ -11,7 +13,7 @@ First you need to install tkinter
 ## Installation 
 ``` 
 git clone https://github.com/QuaackQuaack/Maze_game.git 
+cd Maze_game
+python3 Maze_game.py
 ```
 
-
-In this repository, I made a simple module of maze game. This project helps me to understand turtle, it's method and also add color to my way of researching and learning.
