@@ -14,7 +14,7 @@ First, you need to install tkinter
 ``` 
 git clone https://github.com/QuaackQuaack/Maze_game.git 
 cd Maze_game
-python3 Maze_game.py
+python3 main.py
 ```
 ###to-do
 - [ ] ask user info in small pop-up box 
